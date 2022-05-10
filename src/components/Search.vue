@@ -8,14 +8,25 @@
 				class="search-field"
 			/>
 		</form>
-		<p v-if="loading">Loading</p>
+		<!-- <div>
+			<span v-if="loading">Loading</span>
+		</div> -->
 	</div>
 </template>
 
 <script>
 import PokemonService from "../services/PokemonService.js";
+import { usePokemonStore } from "../../store/PokemonStore";
+
 export default {
 	name: "Search",
+
+	setup() {
+		const pokemonStore = usePokemonStore();
+		return {
+			pokemonStore,
+		};
+	},
 	data() {
 		return {
 			search: "",
@@ -30,7 +41,8 @@ export default {
 				let term = this.search.toLowerCase();
 				const res = await PokemonService.getPokemonData(term);
 				// this.result = res.data;//
-				this.$store.dispatch("viewPokemon", res.data);
+				// this.$store.dispatch("viewPokemon", res.data);
+				this.pokemonStore.fetchPokemon(res.data);
 				// console.log(res.data);
 				this.loading = false;
 				console.log(res.data);

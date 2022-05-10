@@ -1,30 +1,50 @@
 <template>
 	<div class="info-card">
-		<h2 class="name">{{ name }}</h2>
-		<div class="id">Pokedex #{{ id }}</div>
-		<div :class="type1" class="type">{{ type1 }}</div>
-		<div :class="type2" class="type" v-if="type2">{{ type2 }}</div>
+		<h2 class="name">{{ pokemonStore.getName }}</h2>
+		<div class="id">Pokedex #{{ pokemonStore.getID }}</div>
+		<div :class="pokemonStore.getFirstType" class="type">
+			{{ pokemonStore.getFirstType }}
+		</div>
+		<div
+			:class="pokemonStore.getSecondType"
+			class="type"
+			v-if="pokemonStore.getSecondType"
+		>
+			{{ pokemonStore.getSecondType }}
+		</div>
 	</div>
 </template>
 
 <script>
+// import { computed } from "@vue/reactivity";
+import { usePokemonStore } from "../../store/PokemonStore";
+
 export default {
-	name: "InfoCard",
-	computed: {
-		name() {
-			return this.$store.getters.pokemonNameGetter;
-		},
-		id() {
-			return this.$store.getters.idGetter;
-		},
-		type1() {
-			return this.$store.getters.type1Getter;
-		},
-		type2() {
-			return this.$store.getters.type2Getter;
-		},
+	setup() {
+		const pokemonStore = usePokemonStore();
+		return {
+			pokemonStore,
+		};
 	},
 };
+
+// export default {
+// 	name: "InfoCard",
+// 	computed: {
+// 		name() {
+// 			return this.$store.getters.pokemonNameGetter;
+// 		},
+// 		id() {
+// 			return this.$store.getters.idGetter;
+// 		},
+// 		type1() {
+// 			return this.$store.getters.type1Getter;
+// 		},
+// 		type2() {
+// 			return this.$store.getters.type2Getter;
+// 		},
+// 	},
+// };
 </script>
 
 <style scoped>
