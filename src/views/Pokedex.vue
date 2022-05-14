@@ -18,13 +18,16 @@
 		</div>
 
 		<section class="party">
-			<!-- <PokemonParty :number="0" />
-			<PokemonParty :number="1" />
-			<PokemonParty :number="2" />
-			<PokemonParty :number="3" />
-			<PokemonParty :number="4" />
-			<PokemonParty :number="5" /> 
-			need to add pokemonparty to components -->
+			<PokemonParty :pokemon="fetchParty(0)" />
+			<PokemonParty :pokemon="fetchParty(1)" />
+			<PokemonParty :pokemon="fetchParty(2)" />
+			<PokemonParty :pokemon="fetchParty(3)" />
+			<PokemonParty :pokemon="fetchParty(4)" />
+			<PokemonParty :pokemon="fetchParty(5)" />
+		</section>
+
+		<section>
+			<button v-on:click="testing">DELETE 3rd POKEMON</button>
 		</section>
 	</div>
 </template>
@@ -34,10 +37,52 @@ import PokemonCard from "../components/PokemonCard.vue";
 import InfoCard from "../components/InfoCard.vue";
 import Search from "../components/Search.vue";
 import AddButton from "../components/AddButton.vue";
-// import PokemonParty from "../components/PokemonParty.vue";
+import PokemonParty from "../components/PokemonParty.vue";
+import { usePokemonStore } from "../../store/PokemonStore";
+
+// let pokemonExists = true;
+// let pokemonDoesNotExist = false;
 
 export default {
-	components: { PokemonCard, InfoCard, Search, AddButton },
+	components: { PokemonCard, InfoCard, Search, AddButton, PokemonParty },
+	setup() {
+		const pokemonStore = usePokemonStore();
+		return {
+			pokemonStore,
+		};
+	},
+
+	methods: {
+		fetchParty(index) {
+			let result;
+			switch (index) {
+				case 0:
+					result = this.pokemonStore.fetchFirstPokemon();
+					break;
+				case 1:
+					result = this.pokemonStore.fetchSecondPokemon();
+					break;
+				case 2:
+					result = this.pokemonStore.fetchThirdPokemon();
+					break;
+				case 3:
+					result = this.pokemonStore.fetchFourthPokemon();
+					break;
+				case 4:
+					result = this.pokemonStore.fetchFifthPokemon();
+					break;
+				case 5:
+					result = this.pokemonStore.fetchSixthPokemon();
+					break;
+			}
+			return result;
+		},
+
+		testing() {
+			console.log("Delete button pressed");
+			this.pokemonStore.remove3();
+		},
+	},
 };
 </script>
 

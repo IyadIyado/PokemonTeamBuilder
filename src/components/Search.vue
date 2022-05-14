@@ -40,11 +40,9 @@ export default {
 			try {
 				let term = this.search.toLowerCase();
 				const res = await PokemonService.getPokemonData(term);
-				// this.result = res.data;//
-				// this.$store.dispatch("viewPokemon", res.data);
 				this.pokemonStore.fetchPokemon(res.data);
-				// console.log(res.data);
 				this.loading = false;
+				this.search = "";
 				console.log(res.data);
 			} catch (error) {
 				console.log(error);

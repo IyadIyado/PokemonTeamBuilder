@@ -6,19 +6,25 @@
 </template>
 
 <script>
+import { usePokemonStore } from "../../store/PokemonStore";
+
 export default {
+	setup() {
+		const pokemonStore = usePokemonStore();
+		return {
+			pokemonStore,
+		};
+	},
 	name: "AddButton",
 	data() {
 		return {};
 	},
 	methods: {
 		addToParty() {
-			console.log("Added");
-			this.$store.dispatch("addToParty");
+			this.pokemonStore.addPokemonToParty();
 		},
 		consoleLogParty() {
-			// console.log(this.$store.state.party);
-			this.$store.getters.partyViewer;
+			this.pokemonStore.getParty;
 		},
 	},
 };

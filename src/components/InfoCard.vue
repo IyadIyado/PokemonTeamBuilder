@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// import { computed } from "@vue/reactivity";
 import { usePokemonStore } from "../../store/PokemonStore";
 
 export default {
@@ -27,24 +26,6 @@ export default {
 		};
 	},
 };
-
-// export default {
-// 	name: "InfoCard",
-// 	computed: {
-// 		name() {
-// 			return this.$store.getters.pokemonNameGetter;
-// 		},
-// 		id() {
-// 			return this.$store.getters.idGetter;
-// 		},
-// 		type1() {
-// 			return this.$store.getters.type1Getter;
-// 		},
-// 		type2() {
-// 			return this.$store.getters.type2Getter;
-// 		},
-// 	},
-// };
 </script>
 
 <style scoped>
