@@ -4,7 +4,9 @@ export const usePokemonStore = defineStore("PokemonStore", {
 	state: () => ({
 		pokemon: null,
 		party: [],
+		removeCounter: 0,
 	}),
+
 	getters: {
 		getName() {
 			let name = this.pokemon?.name;
@@ -45,6 +47,38 @@ export const usePokemonStore = defineStore("PokemonStore", {
 				console.log(pokemon.name + " is in the party");
 			});
 		},
+
+		getFirstPokemon() {
+			if (this.party.length > 0) {
+				return this.party[0];
+			}
+		},
+
+		getSecondPokemon() {
+			if (this.party.length >= 1) {
+				return this.party[1];
+			}
+		},
+		getThirdPokemon() {
+			if (this.party.length >= 2) {
+				return this.party[2];
+			}
+		},
+		getFourthPokemon() {
+			if (this.party.length >= 3) {
+				return this.party[3];
+			}
+		},
+		getFifthPokemon() {
+			if (this.party.length > 4) {
+				return this.party[4];
+			}
+		},
+		getSixthPokemon() {
+			if (this.party.length > 5) {
+				return this.party[5];
+			}
+		},
 	},
 
 	actions: {
@@ -61,45 +95,16 @@ export const usePokemonStore = defineStore("PokemonStore", {
 			}
 		},
 
-		fetchFirstPokemon() {
-			if (this.party.length > 0) {
-				return this.party[0];
-			}
+		incrementRemoveCounter() {
+			this.removeCounter++;
 		},
 
-		fetchSecondPokemon() {
-			if (this.party.length >= 1) {
-				return this.party[1];
-			}
-		},
-		fetchThirdPokemon() {
-			if (this.party.length >= 2) {
-				return this.party[2];
-			}
-		},
-		fetchFourthPokemon() {
-			if (this.party.length >= 3) {
-				return this.party[3];
-			}
-		},
-		fetchFifthPokemon() {
-			if (this.party.length > 4) {
-				return this.party[4];
-			}
-		},
-		fetchSixthPokemon() {
-			if (this.party.length > 5) {
-				return this.party[5];
-			}
-		},
-
-		remove3() {
-			if (this.party.length >= 2) {
-				this.party.splice(2, 1);
-				console.log("remove function called");
-			}
+		removePokemon() {
+			let index = this.removeCounter;
+			this.party.splice(index, 1);
+			this.removeCounter = 0;
 		},
 	},
 });
 
-//Next steps, create functions that will remove the clicked pokemon(one for each card)
+//Next steps, Time to redesign, start by designing new layout and the cards for the party pokemon.

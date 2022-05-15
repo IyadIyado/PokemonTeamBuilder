@@ -18,12 +18,12 @@
 		</div>
 
 		<section class="party">
-			<PokemonParty :pokemon="fetchParty(0)" />
-			<PokemonParty :pokemon="fetchParty(1)" />
-			<PokemonParty :pokemon="fetchParty(2)" />
-			<PokemonParty :pokemon="fetchParty(3)" />
-			<PokemonParty :pokemon="fetchParty(4)" />
-			<PokemonParty :pokemon="fetchParty(5)" />
+			<PokemonParty :pokemon="fetchParty(0)" @click="removePokemon(0)" />
+			<PokemonParty :pokemon="fetchParty(1)" @click="removePokemon(1)" />
+			<PokemonParty :pokemon="fetchParty(2)" @click="removePokemon(2)" />
+			<PokemonParty :pokemon="fetchParty(3)" @click="removePokemon(3)" />
+			<PokemonParty :pokemon="fetchParty(4)" @click="removePokemon(4)" />
+			<PokemonParty :pokemon="fetchParty(5)" @click="removePokemon(5)" />
 		</section>
 
 		<section>
@@ -57,30 +57,36 @@ export default {
 			let result;
 			switch (index) {
 				case 0:
-					result = this.pokemonStore.fetchFirstPokemon();
+					result = this.pokemonStore.getFirstPokemon;
 					break;
 				case 1:
-					result = this.pokemonStore.fetchSecondPokemon();
+					result = this.pokemonStore.getSecondPokemon;
 					break;
 				case 2:
-					result = this.pokemonStore.fetchThirdPokemon();
+					result = this.pokemonStore.getThirdPokemon;
 					break;
 				case 3:
-					result = this.pokemonStore.fetchFourthPokemon();
+					result = this.pokemonStore.getFourthPokemon;
 					break;
 				case 4:
-					result = this.pokemonStore.fetchFifthPokemon();
+					result = this.pokemonStore.getFifthPokemon;
 					break;
 				case 5:
-					result = this.pokemonStore.fetchSixthPokemon();
+					result = this.pokemonStore.getSixthPokemon;
 					break;
 			}
 			return result;
 		},
 
-		testing() {
-			console.log("Delete button pressed");
-			this.pokemonStore.remove3();
+		removePokemon(index) {
+			if (index == 0) {
+				this.pokemonStore.removePokemon();
+			} else {
+				for (let i = 1; i <= index; i++) {
+					this.pokemonStore.incrementRemoveCounter();
+				}
+				this.pokemonStore.removePokemon();
+			}
 		},
 	},
 };

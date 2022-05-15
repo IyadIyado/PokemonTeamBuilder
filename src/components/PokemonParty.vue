@@ -2,8 +2,11 @@
 	<div>
 		<!-- <img :src="image" :alt="alt" /> -->
 		<h2 class="name">{{ name() }}</h2>
-		<div class="type"></div>
-		<div class="type"></div>
+		<div class="type">{{ type1() }}</div>
+		<div v-if="type2()" class="type">{{ type2() }}</div>
+		<div>
+			<img :src="image()" alt="" />
+		</div>
 	</div>
 </template>
 
@@ -28,6 +31,31 @@ export default {
 	methods: {
 		name() {
 			return this.pokemon?.name;
+		},
+
+		type1() {
+			let type = this.pokemon?.types[0].type.name;
+			if (type) {
+				return type?.charAt(0).toUpperCase() + type?.slice(1);
+			} else {
+				return "";
+			}
+		},
+
+		type2() {
+			if (this.pokemon?.types.length > 1) {
+				let type = this.pokemon.types[1].type.name;
+				return type?.charAt(0).toUpperCase() + type?.slice(1);
+			} else {
+				return "";
+			}
+		},
+
+		image() {
+			let sprite = this.pokemon?.sprites;
+			if (sprite) {
+				return sprite.other["official-artwork"]["front_default"];
+			}
 		},
 	},
 	computed: {},
