@@ -1,11 +1,19 @@
 <template>
-	<div>
-		<!-- <img :src="image" :alt="alt" /> -->
-		<h2 class="name">{{ name() }}</h2>
-		<div class="type">{{ type1() }}</div>
-		<div v-if="type2()" class="type">{{ type2() }}</div>
-		<div>
-			<img :src="image()" alt="" />
+	<div class="component">
+		<div class="card">
+			<div class="blank"></div>
+			<div class="types">
+				<div :class="type1()" class="type">{{ type1() }}</div>
+				<div v-if="type2()" :class="type2()" class="type">
+					{{ type2() }}
+				</div>
+			</div>
+
+			<h2 class="name">{{ name() }}</h2>
+		</div>
+		<div class="image">
+			<img :src="image()" :alt="alt" />
+			<!-- <div class="platform"></div> -->
 		</div>
 	</div>
 </template>
@@ -30,7 +38,10 @@ export default {
 	},
 	methods: {
 		name() {
-			return this.pokemon?.name;
+			let name = this.pokemon?.name;
+			if (name) {
+				return name.charAt(0).toUpperCase() + name.slice(1);
+			}
 		},
 
 		type1() {
@@ -54,18 +65,73 @@ export default {
 		image() {
 			let sprite = this.pokemon?.sprites;
 			if (sprite) {
+				// return sprite["front_default"];
 				return sprite.other["official-artwork"]["front_default"];
 			}
 		},
 	},
-	computed: {},
+	computed: {
+		alt() {
+			if (this.name()) {
+				return `Pokedex image for ${this.name()}`;
+			} else {
+				return "";
+			}
+		},
+	},
 };
 </script>
 
 <style scoped>
+.card {
+	background: white;
+	/* margin: 0% 15%; */
+	border-radius: 5%;
+}
+
+img {
+	z-index: 10;
+	width: 250px;
+	height: auto;
+	position: absolute;
+}
+.image {
+	bottom: 310px;
+	right: 20px;
+	z-index: 10;
+	position: relative;
+	/* transition: transform 1s; */
+}
+
+.image:hover {
+	animation: moveUpDown 0.5s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-15px);
+	}
+}
+
+.blank {
+	height: 200px;
+	width: 200px;
+}
+
+.types {
+	display: flex;
+	justify-content: space-evenly;
+}
+
 .name {
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	letter-spacing: 2px;
+	text-align: center;
+	padding: 5% 0%;
 }
 
 .id {
@@ -74,8 +140,9 @@ export default {
 
 .type {
 	margin: 1%;
-	border-radius: 5px;
-	font-size: 2rem;
+	padding: 1% 7%;
+	border-radius: 2px;
+	/* font-size: 2rem; */
 	text-align: center;
 }
 

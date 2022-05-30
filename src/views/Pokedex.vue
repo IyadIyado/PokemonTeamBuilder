@@ -40,6 +40,8 @@ import AddButton from "../components/AddButton.vue";
 import PokemonParty from "../components/PokemonParty.vue";
 import { usePokemonStore } from "../../store/PokemonStore";
 
+// let party = this.pokemonStore.party;
+
 // let pokemonExists = true;
 // let pokemonDoesNotExist = false;
 
@@ -120,5 +122,12 @@ div {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(20px);
 	border-radius: 10px;
+}
+
+.party {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 10px;
 }
 </style>

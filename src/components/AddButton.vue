@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<button type="button" v-on:click="addToParty">Add</button>
-		<button type="button" v-on:click="consoleLogParty">View</button>
+		<!-- <button type="button" v-on:click="consoleLogParty">View</button> -->
 	</div>
 </template>
 

@@ -5,6 +5,7 @@ export const usePokemonStore = defineStore("PokemonStore", {
 		pokemon: null,
 		party: [],
 		removeCounter: 0,
+		pixelArt: false,
 	}),
 
 	getters: {
@@ -79,6 +80,9 @@ export const usePokemonStore = defineStore("PokemonStore", {
 				return this.party[5];
 			}
 		},
+		getPixelArt() {
+			return this.pixelArt;
+		},
 	},
 
 	actions: {
@@ -103,6 +107,9 @@ export const usePokemonStore = defineStore("PokemonStore", {
 			let index = this.removeCounter;
 			this.party.splice(index, 1);
 			this.removeCounter = 0;
+		},
+		togglePixelArt() {
+			this.pixelArt = !this.pixelArt;
 		},
 	},
 });
