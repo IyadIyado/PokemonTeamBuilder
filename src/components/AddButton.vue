@@ -9,13 +9,13 @@
 import { usePokemonStore } from "../../store/PokemonStore";
 
 export default {
+	name: "AddButton",
 	setup() {
 		const pokemonStore = usePokemonStore();
 		return {
 			pokemonStore,
 		};
 	},
-	name: "AddButton",
 	data() {
 		return {};
 	},

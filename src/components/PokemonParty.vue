@@ -65,8 +65,11 @@ export default {
 		image() {
 			let sprite = this.pokemon?.sprites;
 			if (sprite) {
-				// return sprite["front_default"];
-				return sprite.other["official-artwork"]["front_default"];
+				if (this.pokemonStore.pixelArt.valueOf() == false) {
+					return sprite.other["official-artwork"]["front_default"];
+				} else {
+					return sprite["front_default"];
+				}
 			}
 		},
 	},

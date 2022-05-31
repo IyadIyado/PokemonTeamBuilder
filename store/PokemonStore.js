@@ -18,7 +18,11 @@ export const usePokemonStore = defineStore("PokemonStore", {
 		getImage() {
 			let sprite = this.pokemon?.sprites;
 			if (sprite) {
-				return sprite.other["official-artwork"]["front_default"];
+				if (this.pixelArt.valueOf() == false) {
+					return sprite.other["official-artwork"]["front_default"];
+				} else {
+					return sprite["front_default"];
+				}
 			}
 		},
 		getAlt() {
@@ -110,6 +114,9 @@ export const usePokemonStore = defineStore("PokemonStore", {
 		},
 		togglePixelArt() {
 			this.pixelArt = !this.pixelArt;
+			console.log(`Status changed to: ${this.pixelArt}`);
+			// console.log();
+			// console.log(this.getPixelArt());
 		},
 	},
 });

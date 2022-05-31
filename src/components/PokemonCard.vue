@@ -2,7 +2,7 @@
 	<div class="pokemon-card">
 		<!-- <div class="name">{{ pokemonName }}</div> -->
 		<div class="image">
-			<img :src="pokemonStore.getImage" :alt="alt" />
+			<img :class="pixel" :src="pokemonStore.getImage" :alt="alt" />
 		</div>
 	</div>
 </template>
@@ -25,17 +25,17 @@ export default {
 			}
 			return "";
 		},
+
+		pixel() {
+			if (this.pokemonStore.pixelArt.valueOf()) {
+				return "pixel";
+			} else {
+				return "official";
+			}
+		},
 	},
 
 	name: "PokemonCard",
-	// computed: {
-	// 	image() {
-	// 		return this.$store.getters.pokemonImageGetter;
-	// 	},
-	// 	// pokemonName() {
-	// 	// 	return this.$store.getters.pokemonNameGetter;
-	// 	// },
-	// },
 };
 </script>
 
@@ -44,7 +44,18 @@ export default {
 	transition: transform 0.5s ease-in-out;
 }
 
+.official {
+	width: 30vw;
+}
+
 .image:hover {
 	transform: scale(1.1);
+}
+
+.pixel {
+	padding-left: 10px;
+	width: 30vw;
+	/* position: relative; */
+	right: 150%;
 }
 </style>

@@ -8,6 +8,7 @@
 				class="search-field"
 			/>
 		</form>
+
 		<!-- <div>
 			<span v-if="loading">Loading</span>
 		</div> -->
@@ -55,10 +56,21 @@ export default {
 
 <style scoped>
 .search-field {
-	border-radius: 10px;
+	/* border-radius: 10px;
 	width: 100%;
-	height: 2rem;
+	height: 3rem;
 	font-size: 1.3rem;
+	text-align: center; */
+
+	border: 1px solid #555555;
+	width: 93%;
+	color: black;
+	padding: 16px 32px;
 	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	/* margin: 4px 2px; */
+	transition-duration: 0.4s;
 }
 </style>

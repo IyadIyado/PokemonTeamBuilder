@@ -1,8 +1,14 @@
 <template>
 	<div class="container">
-		<div class="search">
-			<Search />
+		<div class="control">
+			<div class="search">
+				<Search />
+			</div>
+			<div class="toggle">
+				<ArtToggle />
+			</div>
 		</div>
+
 		<div class="info-components">
 			<div class="card">
 				<PokemonCard :key="pokemon?.id" />
@@ -33,6 +39,7 @@
 </template>
 
 <script>
+import ArtToggle from "../components/ArtToggle.vue";
 import PokemonCard from "../components/PokemonCard.vue";
 import InfoCard from "../components/InfoCard.vue";
 import Search from "../components/Search.vue";
@@ -46,7 +53,14 @@ import { usePokemonStore } from "../../store/PokemonStore";
 // let pokemonDoesNotExist = false;
 
 export default {
-	components: { PokemonCard, InfoCard, Search, AddButton, PokemonParty },
+	components: {
+		PokemonCard,
+		InfoCard,
+		Search,
+		AddButton,
+		PokemonParty,
+		ArtToggle,
+	},
 	setup() {
 		const pokemonStore = usePokemonStore();
 		return {
@@ -97,6 +111,15 @@ export default {
 <style scoped>
 div {
 	padding: 1% 0;
+}
+
+.search {
+	flex-grow: 0.98;
+}
+
+.control {
+	display: flex;
+	justify-content: space-between;
 }
 
 .info {
