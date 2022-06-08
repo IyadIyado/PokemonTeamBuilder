@@ -1,6 +1,6 @@
 <template>
 	<div class="component">
-		<div class="card">
+		<div v-if="pokemon" class="card">
 			<div class="blank"></div>
 			<div class="types">
 				<div :class="type1()" class="type">{{ type1() }}</div>
@@ -86,15 +86,22 @@ export default {
 </script>
 
 <style scoped>
+.component {
+	margin: 5px;
+	/* background: red; */
+}
 .card {
 	background: white;
 	/* margin: 0% 15%; */
 	border-radius: 5%;
+	width: 94%;
+	position: relative;
+	left: 3%;
 }
 
 img {
 	z-index: 10;
-	width: 250px;
+	width: 25vh;
 	height: auto;
 	position: absolute;
 }

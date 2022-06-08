@@ -45,7 +45,7 @@ export default {
 }
 
 .official {
-	width: 30vw;
+	width: 100%;
 }
 
 .image:hover {
@@ -54,7 +54,7 @@ export default {
 
 .pixel {
 	padding-left: 10px;
-	width: 30vw;
+	width: 100%;
 	/* position: relative; */
 	right: 150%;
 }

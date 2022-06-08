@@ -23,18 +23,42 @@
 			<AddButton />
 		</div>
 
-		<section class="party">
-			<PokemonParty :pokemon="fetchParty(0)" @click="removePokemon(0)" />
-			<PokemonParty :pokemon="fetchParty(1)" @click="removePokemon(1)" />
-			<PokemonParty :pokemon="fetchParty(2)" @click="removePokemon(2)" />
-			<PokemonParty :pokemon="fetchParty(3)" @click="removePokemon(3)" />
-			<PokemonParty :pokemon="fetchParty(4)" @click="removePokemon(4)" />
-			<PokemonParty :pokemon="fetchParty(5)" @click="removePokemon(5)" />
+		<h1>Party</h1>
+		<section class="party" id="partyBar">
+			<div class="party1 party">
+				<PokemonParty
+					:pokemon="fetchParty(0)"
+					@click="removePokemon(0)"
+				/>
+				<PokemonParty
+					:pokemon="fetchParty(1)"
+					@click="removePokemon(1)"
+				/>
+				<PokemonParty
+					:pokemon="fetchParty(2)"
+					@click="removePokemon(2)"
+				/>
+			</div>
+
+			<div class="party2 party">
+				<PokemonParty
+					:pokemon="fetchParty(3)"
+					@click="removePokemon(3)"
+				/>
+				<PokemonParty
+					:pokemon="fetchParty(4)"
+					@click="removePokemon(4)"
+				/>
+				<PokemonParty
+					:pokemon="fetchParty(5)"
+					@click="removePokemon(5)"
+				/>
+			</div>
 		</section>
 
-		<section>
+		<!-- <section>
 			<button v-on:click="testing">DELETE 3rd POKEMON</button>
-		</section>
+		</section> -->
 	</div>
 </template>
 
@@ -113,6 +137,15 @@ div {
 	padding: 1% 0;
 }
 
+.container {
+	display: flex;
+}
+
+#partyBar {
+	display: flex;
+	justify-content: center;
+}
+
 .search {
 	flex-grow: 0.98;
 }
@@ -130,6 +163,7 @@ div {
 	padding: 2% 10%;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 }
 
 .info-components {
@@ -138,6 +172,7 @@ div {
 	border: 1px solid black;
 	border-radius: 5px;
 	width: 100%;
+	/* height: 50vh; */
 
 	background: rgba(255, 255, 255, 0.15);
 	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
@@ -152,5 +187,6 @@ div {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	gap: 10px;
+	height: auto;
 }
 </style>
