@@ -40,22 +40,25 @@ export default {
 </script>
 
 <style scoped>
-.image {
-	transition: transform 0.5s ease-in-out;
+img {
+	/* -webkit-transform: translateZ(0); */
+	image-rendering: crisp-edges;
 }
+
+/* .image {
+	transition: transform 0.5s ease-in-out;
+} */
 
 .official {
-	width: 100%;
+	width: 20vw;
 }
 
-.image:hover {
+/* .image:hover {
 	transform: scale(1.1);
-}
+} */
 
 .pixel {
-	padding-left: 10px;
-	width: 100%;
-	/* position: relative; */
-	right: 150%;
+	width: 20vw;
+	object-fit: cover;
 }
 </style>

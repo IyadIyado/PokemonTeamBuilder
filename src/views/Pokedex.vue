@@ -16,12 +16,15 @@
 
 			<div class="info">
 				<InfoCard />
+				<div class="AddButton">
+					<AddButton />
+				</div>
 			</div>
 		</div>
 
-		<div class="AddButton">
+		<!-- <div class="AddButton">
 			<AddButton />
-		</div>
+		</div> -->
 
 		<h1>Party</h1>
 		<section class="party" id="partyBar">

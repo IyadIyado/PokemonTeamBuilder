@@ -21,7 +21,7 @@ export default {
 	margin: 0;
 }
 .pokedex {
-	background: #ffd9c0;
+	background-image: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 	background-repeat: no-repeat;
 	background-size: cover;
 }

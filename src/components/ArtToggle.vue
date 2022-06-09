@@ -26,9 +26,9 @@ export default {
 	computed: {
 		buttonText() {
 			if (this.pokemonStore.pixelArt == true) {
-				return "Pixel Art";
-			} else {
 				return "Official Art";
+			} else {
+				return "Pixel Art";
 			}
 		},
 	},
