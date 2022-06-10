@@ -10,6 +10,9 @@
 		</div>
 
 		<div class="info-components">
+			<div class="stats">
+				<PokemonStats />
+			</div>
 			<div class="card">
 				<PokemonCard :key="pokemon?.id" />
 			</div>
@@ -72,6 +75,7 @@ import InfoCard from "../components/InfoCard.vue";
 import Search from "../components/Search.vue";
 import AddButton from "../components/AddButton.vue";
 import PokemonParty from "../components/PokemonParty.vue";
+import PokemonStats from "../components/PokemonStats.vue";
 import { usePokemonStore } from "../../store/PokemonStore";
 
 // let party = this.pokemonStore.party;
@@ -87,6 +91,7 @@ export default {
 		AddButton,
 		PokemonParty,
 		ArtToggle,
+		PokemonStats,
 	},
 	setup() {
 		const pokemonStore = usePokemonStore();
@@ -136,12 +141,20 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@400;700&display=swap");
+
 div {
 	padding: 1% 0;
 }
 
 .container {
 	display: flex;
+	font-family: "Montserrat", sans-serif;
+	font-family: "Raleway", sans-serif;
+}
+
+.stats {
+	flex-grow: 0.35;
 }
 
 #partyBar {
@@ -171,7 +184,7 @@ div {
 
 .info-components {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	border: 1px solid black;
 	border-radius: 5px;
 	width: 100%;

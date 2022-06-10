@@ -6,6 +6,7 @@
 				v-model="search"
 				type="text"
 				class="search-field"
+				placeholder="Type Pokemon Name Here"
 			/>
 		</form>
 

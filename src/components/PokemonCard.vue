@@ -18,6 +18,7 @@ export default {
 		};
 	},
 
+	name: "PokemonCard",
 	computed: {
 		alt() {
 			if (this.pokemonStore.pokemon) {
@@ -34,8 +35,6 @@ export default {
 			}
 		},
 	},
-
-	name: "PokemonCard",
 };
 </script>
 

@@ -1,5 +1,6 @@
 <template>
 	<div class="component">
+		<div class="stats"></div>
 		<div v-if="pokemon" class="card">
 			<div class="blank"></div>
 			<div class="types">

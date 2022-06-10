@@ -87,6 +87,25 @@ export const usePokemonStore = defineStore("PokemonStore", {
 		getPixelArt() {
 			return this.pixelArt;
 		},
+		getHP() {
+			return this.pokemon?.stats[0]["base_stat"];
+		},
+		getAttack() {
+			return this.pokemon?.stats[1]["base_stat"];
+		},
+
+		getDefense() {
+			return this.pokemon?.stats[2]["base_stat"];
+		},
+		getSpAttack() {
+			return this.pokemon?.stats[3]["base_stat"];
+		},
+		getSpDefense() {
+			return this.pokemon?.stats[4]["base_stat"];
+		},
+		getSpeed() {
+			return this.pokemon?.stats[5]["base_stat"];
+		},
 	},
 
 	actions: {

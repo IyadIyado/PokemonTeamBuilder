@@ -1,18 +1,54 @@
 <template>
-	<div class="info-card">
-		<h2 class="name">{{ pokemonStore.getName }}</h2>
-		<div class="id">Pokedex #{{ pokemonStore.getID }}</div>
-		<div :class="pokemonStore.getFirstType" class="type">
-			{{ pokemonStore.getFirstType }}
+	<section>
+		<h1>HP</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${HP}%` }"
+			></div>
 		</div>
-		<div
-			:class="pokemonStore.getSecondType"
-			class="type"
-			v-if="pokemonStore.getSecondType"
-		>
-			{{ pokemonStore.getSecondType }}
+		<h1>Attack</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${Attack}%` }"
+			></div>
 		</div>
-	</div>
+		<h1>Defense</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${Defense}%` }"
+			></div>
+		</div>
+		<h1>Special Attack</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${SpAttack}%` }"
+			></div>
+		</div>
+		<h1>Special Defense</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${SpDefense}%` }"
+			></div>
+		</div>
+		<h1>Speed</h1>
+		<div class="progress">
+			<div
+				class="progress__fill"
+				:class="type"
+				:style="{ width: `${Speed}%` }"
+			></div>
+		</div>
+	</section>
 </template>
 
 <script>
@@ -25,45 +61,66 @@ export default {
 			pokemonStore,
 		};
 	},
+
+	computed: {
+		type() {
+			if (this.pokemonStore.pokemon) {
+				return this.pokemonStore.getFirstType;
+			}
+			return "";
+		},
+		HP() {
+			return (this.pokemonStore.getHP / 255) * 100;
+		},
+		Attack() {
+			return (this.pokemonStore.getAttack / 255) * 100;
+		},
+		Defense() {
+			return (this.pokemonStore.getDefense / 255) * 100;
+		},
+		SpAttack() {
+			return (this.pokemonStore.getSpAttack / 255) * 100;
+		},
+		SpDefense() {
+			return (this.pokemonStore.getSpDefense / 255) * 100;
+		},
+		Speed() {
+			return (this.pokemonStore.getSpeed / 255) * 100;
+		},
+		//Add the appropriate functions to store, and then to template on top here
+	},
+
+	name: "PokemonStats",
 };
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@400;700&display=swap");
-.name {
-	/* font-weight: 600; */
-	font-family: "Montserrat", sans-serif;
-	font-family: "Raleway", sans-serif;
-}
-
-.info-card {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-div {
-	padding: 10% 0;
-}
-
-.name {
-	font-size: 2.5rem;
-	letter-spacing: 2px;
-}
-
-.id {
-	font-size: 2.5rem;
-}
-
-.type {
-	margin: 1%;
+.progress {
+	width: 90%;
+	height: 3vh;
+	background: rgba(240, 240, 240, 0.685);
 	border-radius: 5px;
-	letter-spacing: 2px;
-	font-size: 1.5rem;
-	text-align: center;
-	font-weight: 600;
-	font-family: "Montserrat", sans-serif;
-	font-family: "Raleway", sans-serif;
+	overflow: hidden;
+}
+
+.progress__fill {
+	height: 100%;
+	border-radius: 5px;
+}
+
+h1 {
+	padding: 2% 0;
+}
+
+.Bug {
+	color: white;
+	/* background: #729f40; */
+	background-image: linear-gradient(
+		160deg,
+		#78f530 0%,
+		#62c593 48%,
+		#729f40 100%
+	);
 }
 
 .Dark {
@@ -107,13 +164,13 @@ div {
 }
 .Fire {
 	color: white;
-	/* background: #fd7d24; */
+	background: #fd7d24;
 	background-image: linear-gradient(160deg, #fc8d24 0%, #fd7d24 100%);
 }
 
 .Flying {
 	color: white;
-	background: #3dc7ee;
+	/* background: #3dc7ee; */
 	background-image: linear-gradient(160deg, #4facfe 0%, #3dc7ee 100%);
 }
 .Ground {
@@ -172,16 +229,5 @@ div {
 	color: white;
 	background: #9eb8b9;
 	background-image: linear-gradient(160deg, #dee1e4 0%, #728383 100%);
-}
-
-.Bug {
-	color: white;
-	/* background: #729f40; */
-	background-image: linear-gradient(
-		160deg,
-		#78f530 0%,
-		#62c593 48%,
-		#729f40 100%
-	);
 }
 </style>
