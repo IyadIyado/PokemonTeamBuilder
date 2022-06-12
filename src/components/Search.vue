@@ -56,22 +56,33 @@ export default {
 </script>
 
 <style scoped>
+div {
+	/* border: 1px black solid; */
+	display: flex;
+	justify-content: center;
+}
 .search-field {
+	height: 50px;
+	width: 50vw;
+	border-radius: 5px;
+	border: 1px black solid;
 	/* border-radius: 10px;
 	width: 100%;
 	height: 3rem;
 	font-size: 1.3rem;
 	text-align: center; */
+	/* margin: 4px 2px; */
 
-	border: 1px solid #555555;
-	width: 93%;
+	/* border: 1px solid #555555; */
+	/* border-radius: 5px; */
+	/* width: auto; */
+
 	color: black;
-	padding: 16px 32px;
+	/* padding: 16px 32px; */
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	/* margin: 4px 2px; */
+	/* display: inline-block; */
+	/* font-size: 16px; */
 	transition-duration: 0.4s;
 }
 </style>

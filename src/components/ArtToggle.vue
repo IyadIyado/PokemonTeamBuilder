@@ -42,8 +42,8 @@ export default {
 </script>
 
 <style scoped>
-.button {
-	background-color: #4caf50; /* Green */
+/* .button {
+	background-color: #4caf50;
 	border: none;
 	bottom: 5px;
 	position: relative;
@@ -57,14 +57,28 @@ export default {
 	transition-duration: 0.4s;
 	cursor: pointer;
 }
+
+*/
 .button5 {
 	background-color: white;
 	color: black;
-	border: 2px solid #555555;
+	border: 1px solid #555555;
 }
 
 .button5:hover {
 	background-color: #555555;
 	color: white;
+}
+
+.button {
+	border-radius: 5px;
+	font-size: 16px;
+	position: relative;
+	width: 10vw;
+	height: auto;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+	height: 50px;
 }
 </style>

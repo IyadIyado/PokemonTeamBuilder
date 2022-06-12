@@ -15,19 +15,15 @@
 			</div>
 			<div class="card">
 				<PokemonCard :key="pokemon?.id" />
+				<div class="AddButton">
+					<AddButton v-if="pokemonStore.pokemon" />
+				</div>
 			</div>
 
 			<div class="info">
 				<InfoCard />
-				<div class="AddButton">
-					<AddButton />
-				</div>
 			</div>
 		</div>
-
-		<!-- <div class="AddButton">
-			<AddButton />
-		</div> -->
 
 		<h1>Party</h1>
 		<section class="party" id="partyBar">
@@ -163,12 +159,17 @@ div {
 }
 
 .search {
-	flex-grow: 0.98;
+	/* flex-grow: 1; */
+	flex-grow: 0.95;
 }
 
+.toggle {
+	flex-basis: auto;
+}
 .control {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .info {
@@ -185,17 +186,17 @@ div {
 .info-components {
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	border-radius: 5px;
 	width: 100%;
 	/* height: 50vh; */
 
-	background: rgba(255, 255, 255, 0.15);
+	/* background: rgba(255, 255, 255, 0.15);
 	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(20px);
-	border-radius: 10px;
+	border-radius: 10px; */
 }
 
 .party {

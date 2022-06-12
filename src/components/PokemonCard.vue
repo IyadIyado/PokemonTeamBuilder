@@ -39,25 +39,21 @@ export default {
 </script>
 
 <style scoped>
+div {
+	/* border: black 1px solid; */
+}
 img {
 	/* -webkit-transform: translateZ(0); */
+	width: 20vw;
+
 	image-rendering: crisp-edges;
 }
 
-/* .image {
-	transition: transform 0.5s ease-in-out;
-} */
-
-.official {
-	width: 20vw;
-}
-
-/* .image:hover {
-	transform: scale(1.1);
+/* .official {
 } */
 
 .pixel {
-	width: 20vw;
+	/* width: 20vw; */
 	object-fit: cover;
 }
 </style>

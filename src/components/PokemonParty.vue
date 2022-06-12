@@ -237,6 +237,7 @@ img {
 }
 .Fairy {
 	color: #024615;
+	color: white;
 	background: #fdb9ea;
 	background-image: linear-gradient(160deg, #fdb9ea 0%, #f578dc 100%);
 }

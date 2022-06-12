@@ -40,6 +40,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	/* border: 1px black solid; */
 }
 
 div {
@@ -97,6 +98,7 @@ div {
 }
 .Fairy {
 	color: #024615;
+	color: whitesmoke;
 	background: #fdb9ea;
 	background-image: linear-gradient(160deg, #fdb9ea 0%, #f578dc 100%);
 }

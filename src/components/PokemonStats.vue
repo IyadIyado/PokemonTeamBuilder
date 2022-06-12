@@ -87,7 +87,6 @@ export default {
 		Speed() {
 			return (this.pokemonStore.getSpeed / 255) * 100;
 		},
-		//Add the appropriate functions to store, and then to template on top here
 	},
 
 	name: "PokemonStats",
